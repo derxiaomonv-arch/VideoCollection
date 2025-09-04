@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>去水印下载工具</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="password-gate" class="gate">
+        <div class="gate-card">
+            <h2>进入验证</h2>
+            <p>请输入访问密码：</p>
+            <input id="password-input" type="password" placeholder="请输入密码" />
+            <button id="password-submit" type="button" onclick="window.__enter && window.__enter()">进入</button>
+            <p id="password-error" class="error"></p>
+        </div>
+    </div>
+
+    <main id="app" class="hidden">
+        <header>
+            <h1>去水印下载</h1>
+        </header>
+
+        <section class="controls panel">
+            <label for="api-ak">API 秘钥（ak）</label>
+            <input id="api-ak" type="text" placeholder="请输入你的秘钥，用于请求接口" />
+
+            <label for="share-text">粘贴分享文本</label>
+            <textarea id="share-text" rows="5" placeholder="在此粘贴包含链接的分享内容"></textarea>
+
+            <div class="actions">
+                <button id="parse-btn" class="btn-secondary">开始解析</button>
+                <span id="status" class="status"></span>
+            </div>
+        </section>
+
+        <section id="result" class="result panel hidden">
+            <h2>解析结果</h2>
+            <div class="result-grid">
+                <div class="preview">
+                    <img id="cover-img" alt="封面预览" />
+                </div>
+                <div class="meta">
+                    <p><strong>标题：</strong><span id="title"></span></p>
+                    <p><strong>视频地址：</strong><a id="video-url" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+                    <p><strong>封面地址：</strong><a id="cover-url" href="#" target="_blank" rel="noopener noreferrer"></a></p>
+                    <div class="download-actions">
+                        <button id="download-video">下载视频</button>
+                        <button id="open-video" class="btn-ghost">在新窗口打开视频</button>
+                        <button id="copy-video" class="btn-ghost">复制视频地址</button>
+                        <button id="download-cover">下载封面</button>
+                        <button id="open-cover" class="btn-ghost">在新窗口打开封面</button>
+                        <button id="copy-cover" class="btn-ghost">复制封面地址</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <small>仅供学习交流，请勿用于商业用途。</small>
+        </footer>
+    </main>
+
+    <div id="toast" class="toast-container"></div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
+
+
