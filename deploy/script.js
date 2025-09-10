@@ -1,6 +1,5 @@
 
 (function () {
-	// 临时恢复硬编码配置（部署时通过环境变量管理）
 	const PASSWORD = '123456';
 	const DEFAULT_AK = '568360ea4b91487bbe19abab119af9ab';
 
